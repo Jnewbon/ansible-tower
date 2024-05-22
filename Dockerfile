@@ -2,7 +2,7 @@ FROM ubuntu:22.04 AS ansible-tower
 
 MAINTAINER Julien Blanc <jbla@tuta.io>
 
-ENV ANSIBLE_TOWER_VER 3.8.6-2
+ENV ANSIBLE_TOWER_VER 3.7.5-1
 EXPOSE 80 443
 
 RUN yes | apt-get update \
