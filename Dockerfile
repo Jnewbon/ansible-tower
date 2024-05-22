@@ -2,7 +2,7 @@ FROM ubuntu:14.04 AS ansible-tower
 
 MAINTAINER Julien Blanc <jbla@tuta.io>
 
-ENV ANSIBLE_TOWER_VER 3.1.3
+ENV ANSIBLE_TOWER_VER 3.8.6-2
 EXPOSE 80 443
 
 RUN yes | apt-get update \
@@ -19,7 +19,7 @@ RUN yes | apt-get install ssh \
 
 WORKDIR /opt
 
-RUN wget https://releases.ansible.com/awx/setup/ansible-tower-setup-${ANSIBLE_TOWER_VER}.tar.gz
+RUN wget https://releases.ansible.com/ansible-tower/setup/ansible-tower-setup-${ANSIBLE_TOWER_VER}.tar.gz
 RUN tar xvzf ansible-tower-setup-${ANSIBLE_TOWER_VER}.tar.gz \
     && rm -rf ansible-tower-setup-${ANSIBLE_TOWER_VER}.tar.gz \
     && mv ansible-tower-setup-${ANSIBLE_TOWER_VER} /opt/ansible-tower
