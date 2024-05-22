@@ -1,17 +1,17 @@
-FROM ubuntu:22.04 AS ansible-tower
+FROM --platform=amd64 debian:bookworm-slim AS ansible-tower
 
 MAINTAINER Julien Blanc <jbla@tuta.io>
 
 ENV ANSIBLE_TOWER_VER 3.2.8
 EXPOSE 80 443
 
-RUN yes | apt-get update \
-    && yes | apt-get install software-properties-common \
-    && yes | apt-add-repository ppa:ansible/ansible \
-    && yes | apt-get update \
-    && yes | apt-get install ansible wget libpython2.7 
+RUN apt-get update -y \
+    && apt-get install -y software-properties-common \
+    && apt-add-repository -y ppa:ansible/ansible \
+    && apt-get update -y \
+    && apt-get install -y ansible wget libpython2.7 
     
-RUN yes | apt-get install ssh \
+RUN yes | apt-get install -y ssh \
     && mkdir ~/.ssh \
     && service ssh start \
     && ssh-keyscan -H 127.0.0.1 > ~/.ssh/known_hosts \
