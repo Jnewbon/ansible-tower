@@ -1,4 +1,4 @@
-FROM ubuntu:14.04 AS ansible-tower
+FROM ubuntu:22.04 AS ansible-tower
 
 MAINTAINER Julien Blanc <jbla@tuta.io>
 
